@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +19,28 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Route Home
+Route::get('home', [HomeController::class, 'index'])->name('home');
+
+//Route Profile
+Route::get('profile', ProfileController::class)->name('profile');
+
+//Route Employee List
+Route::resource('employees', EmployeeController::class);
+
+//Route Edit
+// Route::get('/employees/{employee}/edit', [EmployeeController::class, 'edit'])->name('employees.edit');
+
+Route::get('/employees/{employee}/edit', [EmployeeController::class, 'edit'])->name('employees.edit');
+
+
+
+
+
+
+
+
+
+
+
